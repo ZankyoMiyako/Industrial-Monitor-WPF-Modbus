@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,11 +16,11 @@ using System.Windows.Shapes;
 namespace Industrial_Monitor_WPF_Modbus.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// NavigationView.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NavigationBarView : UserControl
     {
-        public MainWindow(IRegionManager regionManager)
+        public NavigationBarView()
         {
             InitializeComponent();
         }

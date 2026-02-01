@@ -1,4 +1,5 @@
-﻿using Industrial_Monitor_WPF_Modbus.Views;
+﻿using Industrial_Monitor_WPF_Modbus.ViewModels;
+using Industrial_Monitor_WPF_Modbus.Views;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -14,10 +15,15 @@ namespace Industrial_Monitor_WPF_Modbus
         {
             return Container.Resolve<MainWindow>();
         }
-
+        protected override void OnInitialized()
+        {
+            base.OnInitialized();
+            var regionManager = Container.Resolve<IRegionManager>();
+            regionManager.RequestNavigate("NavigationBar", nameof(NavigationBarView));
+        }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            
+            containerRegistry.RegisterForNavigation<NavigationBarView,NavigationBarViewModel>();
         }
     }
 

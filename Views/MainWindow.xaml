@@ -5,10 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Industrial_Monitor_WPF_Modbus"
         xmlns:prism="http://prismlibrary.com/"
-        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow"
+        Height="675"
+        Width="1200">
+    <materialDesign:DrawerHost>
+        <Grid Background="AliceBlue">
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Border Grid.ColumnSpan="2"
+                        Background="White"
+                        CornerRadius="15">
+                </Border>
+                <ContentControl Grid.Column="0" prism:RegionManager.RegionName="NavigationBar"/>
+            </Grid>
+        </Grid>
+    </materialDesign:DrawerHost>
 </Window>
