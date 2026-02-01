@@ -19,6 +19,10 @@ namespace Industrial_Monitor_WPF_Modbus.Views
         public MainWindow(IRegionManager regionManager)
         {
             InitializeComponent();
+            MinBtn.Click += (s, e) => { this.WindowState = WindowState.Minimized; };
+            MaxBtn.Click += (s, e) => { this.WindowState = (this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized); };
+            CloseBtn.Click += (s, e) => { this.Close(); };
         }
+
     }
 }
