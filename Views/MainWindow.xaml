@@ -10,6 +10,10 @@
         Title="MainWindow"
         Height="675"
         Width="1200">
+    <WindowChrome.WindowChrome>
+        <WindowChrome  UseAeroCaptionButtons="False"
+                       CaptionHeight="50" />
+    </WindowChrome.WindowChrome>
     <materialDesign:DrawerHost>
         <Grid Background="AliceBlue">
             <Grid Margin="20">
@@ -21,7 +25,53 @@
                         Background="White"
                         CornerRadius="15">
                 </Border>
-                <ContentControl Grid.Column="0" prism:RegionManager.RegionName="NavigationBar"/>
+                <ContentControl Grid.Column="0"
+                                prism:RegionManager.RegionName="NavigationBar" />
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*" />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Margin="0,20,0,0"
+                                       Text="Modbus"
+                                       FontSize="12"
+                                       Foreground="Indigo" />
+                            <TextBlock Text="Industrial-Monitor"
+                                       FontSize="15"
+                                       FontWeight="SemiBold"
+                                       Foreground="Indigo" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,20,0,0">
+                            <Button Margin="5,0"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    x:Name="MinBtn">
+                                <materialDesign:PackIcon Kind="WindowMinimize" />
+                            </Button>
+                            <Button Margin="5,0"
+                                    Style="{StaticResource MaterialDesignFlatButton}" 
+                                    x:Name="MaxBtn">
+                                <materialDesign:PackIcon Kind="WindowMaximize" />
+                            </Button>
+                            <Button Margin="5,0"
+                                    Style="{StaticResource MaterialDesignFlatButton}" 
+                                    x:Name="CloseBtn">
+                                <materialDesign:PackIcon Kind="WindowClose" />
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
     </materialDesign:DrawerHost>
