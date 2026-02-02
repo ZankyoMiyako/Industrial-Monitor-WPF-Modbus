@@ -20,10 +20,12 @@ namespace Industrial_Monitor_WPF_Modbus
             base.OnInitialized();
             var regionManager = Container.Resolve<IRegionManager>();
             regionManager.RequestNavigate("NavigationBar", nameof(NavigationBarView));
+            regionManager.RequestNavigate("Communication",nameof(CommunicationView));
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationBarView,NavigationBarViewModel>();
+            containerRegistry.RegisterForNavigation<CommunicationView, CommunicationViewModel>();
         }
     }
 

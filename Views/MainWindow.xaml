@@ -14,7 +14,10 @@
         <WindowChrome  UseAeroCaptionButtons="False"
                        CaptionHeight="50" />
     </WindowChrome.WindowChrome>
-    <materialDesign:DrawerHost>
+    <materialDesign:DrawerHost IsRightDrawerOpen="False">
+        <materialDesign:DrawerHost.RightDrawerContent>
+            <TextBlock Text="具体通信设置"/>
+        </materialDesign:DrawerHost.RightDrawerContent>
         <Grid Background="AliceBlue">
             <Grid Margin="20">
                 <Grid.ColumnDefinitions>
@@ -89,10 +92,11 @@
                                             Margin="0,0,10,10">
                                         <Grid Margin="10">
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto" />
                                                 <RowDefinition />
                                             </Grid.RowDefinitions>
-                                            <UniformGrid Grid.Row="0" Columns="4">
+                                            <UniformGrid Grid.Row="0"
+                                                         Columns="4">
                                                 <TextBlock Text="序号"
                                                            FontSize="15" />
                                                 <TextBlock Text="地址"
@@ -128,55 +132,7 @@
                                     CornerRadius="15"
                                     Margin="10,0"
                                     Grid.Row="0">
-                                <Grid Grid.Row="0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition />
-                                    </Grid.RowDefinitions>
-                                    <Grid Grid.Row="0">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="auto" />
-                                            <ColumnDefinition />
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock Text="通信设置"
-                                                   FontSize="20"
-                                                   FontWeight="SemiBold"
-                                                   Grid.Column="0"
-                                                   VerticalAlignment="Center"
-                                                   Margin="10" />
-                                        <Border Height="1"
-                                                Background="Black"
-                                                Grid.Column="1"
-                                                Margin="10"
-                                                VerticalAlignment="Center" />
-                                    </Grid>
-                                    <StackPanel Grid.Row="1"
-                                                Orientation="Horizontal"
-                                                Cursor="">
-                                        <TextBlock Text="协议类型"
-                                                   FontSize="15"
-                                                   Margin="10" />
-                                        <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonRight}"
-                                                     Content="TCP" />
-                                        <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
-                                                     Content="RTU" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="2"
-                                                Orientation="Horizontal">
-                                        <TextBlock Text="断开"
-                                                   FontSize="15"
-                                                   Margin="10"
-                                                   VerticalAlignment="Center" />
-                                        <ToggleButton Style="{StaticResource MaterialDesignSwitchToggleButton}"
-                                                      Width="40"
-                                                      VerticalAlignment="Center" />
-                                        <TextBlock Text="连接"
-                                                   FontSize="15"
-                                                   Margin="10"
-                                                   VerticalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
+                                <ContentControl prism:RegionManager.RegionName="Communication"/>
                             </Border>
                             <Border Background="AliceBlue"
                                     Grid.Row="1"
