@@ -52,7 +52,7 @@
                          Margin="0,10"
                          DockPanel.Dock="Top"
                          GroupName="MenuBar">
-                <materialDesign:PackIcon Kind="HomeVariant"
+                <materialDesign:PackIcon Kind="ChartLine"
                                          Width="20"
                                          Height="20"
                                          HorizontalAlignment="Center" />
@@ -62,7 +62,7 @@
                          Margin="0,10"
                          DockPanel.Dock="Top"
                          GroupName="MenuBar">
-                <materialDesign:PackIcon Kind="HomeVariant"
+                <materialDesign:PackIcon Kind="DatabaseOutline"
                                          Width="20"
                                          Height="20"
                                          HorizontalAlignment="Center" />
@@ -72,7 +72,7 @@
                          Margin="0,10"
                          DockPanel.Dock="Top"
                          GroupName="MenuBar">
-                <materialDesign:PackIcon Kind="HomeVariant"
+                <materialDesign:PackIcon Kind="ContentSaveCogOutline"
                                          Width="20"
                                          Height="20"
                                          HorizontalAlignment="Center" />
@@ -82,7 +82,7 @@
                          Margin="0,10"
                          DockPanel.Dock="Top"
                          GroupName="MenuBar">
-                <materialDesign:PackIcon Kind="HomeVariant"
+                <materialDesign:PackIcon Kind="CogOutline"
                                          Width="20"
                                          Height="20"
                                          HorizontalAlignment="Center" />
