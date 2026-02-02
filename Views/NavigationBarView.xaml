@@ -39,7 +39,9 @@
             <RadioButton Style="{StaticResource MenuButton}"
                          Padding="0"
                          Margin="0,10"
-                         DockPanel.Dock="Top">
+                         DockPanel.Dock="Top"
+                         GroupName="MenuBar"
+                         IsChecked="True">
                 <materialDesign:PackIcon Kind="HomeVariant"
                                          Width="20"
                                          Height="20"
@@ -48,7 +50,8 @@
             <RadioButton Style="{StaticResource MenuButton}"
                          Padding="0"
                          Margin="0,10"
-                         DockPanel.Dock="Top">
+                         DockPanel.Dock="Top"
+                         GroupName="MenuBar">
                 <materialDesign:PackIcon Kind="HomeVariant"
                                          Width="20"
                                          Height="20"
@@ -57,7 +60,8 @@
             <RadioButton Style="{StaticResource MenuButton}"
                          Padding="0"
                          Margin="0,10"
-                         DockPanel.Dock="Top">
+                         DockPanel.Dock="Top"
+                         GroupName="MenuBar">
                 <materialDesign:PackIcon Kind="HomeVariant"
                                          Width="20"
                                          Height="20"
@@ -66,7 +70,8 @@
             <RadioButton Style="{StaticResource MenuButton}"
                          Padding="0"
                          Margin="0,10"
-                         DockPanel.Dock="Top">
+                         DockPanel.Dock="Top"
+                         GroupName="MenuBar">
                 <materialDesign:PackIcon Kind="HomeVariant"
                                          Width="20"
                                          Height="20"
@@ -75,7 +80,8 @@
             <RadioButton Style="{StaticResource MenuButton}"
                          Padding="0"
                          Margin="0,10"
-                         DockPanel.Dock="Top">
+                         DockPanel.Dock="Top"
+                         GroupName="MenuBar">
                 <materialDesign:PackIcon Kind="HomeVariant"
                                          Width="20"
                                          Height="20"
@@ -84,7 +90,8 @@
             <RadioButton Style="{StaticResource MenuButton}"
                          Padding="0"
                          Margin="0,10"
-                         DockPanel.Dock="Bottom">
+                         DockPanel.Dock="Bottom"
+                         GroupName="MenuBar">
                 <materialDesign:PackIcon Kind="Export"
                                          Width="20"
                                          Height="20"
