@@ -38,7 +38,8 @@
                        FontSize="15"
                        Margin="10" />
             <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonRight}"
-                         Content="TCP" />
+                         Content="TCP"
+                         Command="{Binding OpenDrawerCommand}"/>
             <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
                          Content="RTU" />
         </StackPanel>

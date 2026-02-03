@@ -14,7 +14,7 @@
         <WindowChrome  UseAeroCaptionButtons="False"
                        CaptionHeight="50" />
     </WindowChrome.WindowChrome>
-    <materialDesign:DrawerHost IsRightDrawerOpen="False">
+    <materialDesign:DrawerHost IsRightDrawerOpen="{Binding IsRightDrawerOpen}">
         <materialDesign:DrawerHost.RightDrawerContent>
             <TextBlock Text="具体通信设置"/>
         </materialDesign:DrawerHost.RightDrawerContent>
