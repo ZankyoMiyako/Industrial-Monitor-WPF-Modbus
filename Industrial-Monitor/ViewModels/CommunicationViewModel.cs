@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Industrial_Monitor_WPF_Modbus.ViewModels
+namespace Industrial_Monitor.ViewModels
 {
-    class NavigationBarViewModel
+    internal class CommunicationViewModel
     {
     }
 }

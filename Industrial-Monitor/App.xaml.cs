@@ -1,10 +1,10 @@
-﻿using Industrial_Monitor_WPF_Modbus.ViewModels;
-using Industrial_Monitor_WPF_Modbus.Views;
+﻿using Industrial_Monitor.ViewModels;
+using Industrial_Monitor.Views;
 using System.Configuration;
 using System.Data;
 using System.Windows;
 
-namespace Industrial_Monitor_WPF_Modbus
+namespace Industrial_Monitor
 {
     /// <summary>
     /// Interaction logic for App.xaml

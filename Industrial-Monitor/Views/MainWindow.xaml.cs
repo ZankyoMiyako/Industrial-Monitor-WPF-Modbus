@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Industrial_Monitor_WPF_Modbus.Views
+namespace Industrial_Monitor.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
