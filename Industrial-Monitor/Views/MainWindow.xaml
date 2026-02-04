@@ -18,8 +18,7 @@
         <materialDesign:DrawerHost.RightDrawerContent>
         <ContentControl x:Name="RightDrawerContentControl"
                        Content="{Binding RightDrawerContent}"
-                       Width="250"
-                       Margin="20"/>
+                       Width="280"/>
         </materialDesign:DrawerHost.RightDrawerContent>
         <Grid Background="AliceBlue">
             <Grid Margin="20">
