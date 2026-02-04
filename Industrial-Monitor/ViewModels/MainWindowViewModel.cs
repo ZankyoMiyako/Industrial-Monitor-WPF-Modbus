@@ -47,7 +47,7 @@ namespace Industrial_Monitor.ViewModels
         #region 导航字段
         private readonly IRegionManager regionManager;
         #endregion
-        #region MyRegion
+        #region 侧边栏内容绑定
         private object _rightDrawerContent;
         public object RightDrawerContent
         {
