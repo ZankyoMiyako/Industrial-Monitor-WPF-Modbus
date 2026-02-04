@@ -16,7 +16,10 @@
     </WindowChrome.WindowChrome>
     <materialDesign:DrawerHost IsRightDrawerOpen="{Binding IsRightDrawerOpen}">
         <materialDesign:DrawerHost.RightDrawerContent>
-            <TextBlock Text="具体通信设置"/>
+        <ContentControl x:Name="RightDrawerContentControl"
+                       Content="{Binding RightDrawerContent}"
+                       Width="250"
+                       Margin="20"/>
         </materialDesign:DrawerHost.RightDrawerContent>
         <Grid Background="AliceBlue">
             <Grid Margin="20">
@@ -132,7 +135,7 @@
                                     CornerRadius="15"
                                     Margin="10,0"
                                     Grid.Row="0">
-                                <ContentControl prism:RegionManager.RegionName="Communication"/>
+                                <ContentControl prism:RegionManager.RegionName="Communication" />
                             </Border>
                             <Border Background="AliceBlue"
                                     Grid.Row="1"

@@ -1,4 +1,5 @@
 ﻿using Industrial_Monitor.Core.Events;
+using Industrial_Monitor.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,11 @@ namespace Industrial_Monitor.ViewModels
         public CommunicationViewModel(IEventAggregator eventAggregator)
         {
             aggregator = eventAggregator;
-            OpenDrawerCommand = new DelegateCommand(() => aggregator.GetEvent<DrawerControlEvent>().Publish(true));
+            OpenDrawerCommand = new DelegateCommand(() => aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
+            {
+                IsOpen = true,
+                ViewName = nameof(CommunicationParametersView)
+            }));
         }
         #region 事件聚合器引用
         private IEventAggregator aggregator;

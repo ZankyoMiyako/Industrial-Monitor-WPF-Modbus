@@ -6,5 +6,11 @@ using System.Threading.Tasks;
 
 namespace Industrial_Monitor.Core.Events
 {
-    public class DrawerControlEvent : PubSubEvent<bool> { }
+    public class DrawerControlEvent : PubSubEvent<DrawerControlEventArgs> { }
+    
+    public class DrawerControlEventArgs
+    {
+        public bool IsOpen { get; set; }
+        public string ViewName {  get; set; }
+    }
 }
