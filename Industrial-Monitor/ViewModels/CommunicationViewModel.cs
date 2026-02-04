@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Industrial_Monitor.ViewModels
 {
-    internal class CommunicationViewModel
+    internal class CommunicationViewModel:BindableBase
     {
         public CommunicationViewModel(IEventAggregator eventAggregator)
         {
@@ -20,10 +20,10 @@ namespace Industrial_Monitor.ViewModels
             }));
         }
         #region 事件聚合器引用
-        private IEventAggregator aggregator;
+        private readonly IEventAggregator aggregator;
         #endregion
         #region 右侧边栏发布命令
-        public DelegateCommand OpenDrawerCommand { get; }
+        public DelegateCommand OpenDrawerCommand { get; set; }
         #endregion
 
     }
