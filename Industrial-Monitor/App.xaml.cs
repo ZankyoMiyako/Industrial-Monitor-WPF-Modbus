@@ -21,13 +21,14 @@ namespace Industrial_Monitor
             var regionManager = Container.Resolve<IRegionManager>();
             regionManager.RequestNavigate("NavigationBar", nameof(NavigationBarView));
             regionManager.RequestNavigate("Communication",nameof(CommunicationView));
-
+            regionManager.RequestNavigate("RequestConfig", nameof(RequestConfigView));
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationBarView,NavigationBarViewModel>();
             containerRegistry.RegisterForNavigation<CommunicationView, CommunicationViewModel>();
             containerRegistry.RegisterForNavigation<CommunicationConfigView, CommunicationConfigViewModel>();
+            containerRegistry.RegisterForNavigation<RequestConfigView, RequestConfigViewModel>();
         }
     }
 
