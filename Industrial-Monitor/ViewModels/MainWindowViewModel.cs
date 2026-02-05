@@ -10,13 +10,13 @@ namespace Industrial_Monitor.ViewModels
 {
     class MainWindowViewModel : BindableBase
     {
-        public MainWindowViewModel(IEventAggregator eventaggregator,IRegionManager _regionManager)
+        public MainWindowViewModel(IEventAggregator eventaggregator, IRegionManager _regionManager)
         {
-            aggregator=eventaggregator;
-            this.regionManager=_regionManager;
-            aggregator.GetEvent<DrawerControlEvent>().Subscribe( Args =>
+            aggregator = eventaggregator;
+            this.regionManager = _regionManager;
+            aggregator.GetEvent<DrawerControlEvent>().Subscribe(Args =>
             {
-                IsRightDrawerOpen=Args.IsOpen;
+                IsRightDrawerOpen = Args.IsOpen;
                 if (Args.IsOpen && !string.IsNullOrEmpty(Args.ViewName))
                 {
                     // 根据ViewName创建对应的视图
@@ -26,7 +26,7 @@ namespace Industrial_Monitor.ViewModels
                 {
                     RightDrawerContent = null;
                 }
-            },ThreadOption.UIThread);
+            }, ThreadOption.UIThread);
         }
         #region 事件聚合器引用
         private readonly IEventAggregator aggregator;
@@ -40,7 +40,6 @@ namespace Industrial_Monitor.ViewModels
             set
             {
                 _IsRightDrawerOpen = value;
-                RaisePropertyChanged();
             }
         }
         #endregion
