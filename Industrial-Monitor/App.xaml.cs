@@ -27,7 +27,7 @@ namespace Industrial_Monitor
         {
             containerRegistry.RegisterForNavigation<NavigationBarView,NavigationBarViewModel>();
             containerRegistry.RegisterForNavigation<CommunicationView, CommunicationViewModel>();
-            containerRegistry.RegisterForNavigation<CommunicationParametersView, CommunicationParametersViewModel>();
+            containerRegistry.RegisterForNavigation<CommunicationConfigView, CommunicationConfigViewModel>();
         }
     }
 

@@ -16,7 +16,7 @@ namespace Industrial_Monitor.ViewModels
             OpenDrawerCommand = new DelegateCommand(() => aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
             {
                 IsOpen = true,
-                ViewName = nameof(CommunicationParametersView)
+                ViewName = nameof(CommunicationConfigView)
             }));
         }
         #region 事件聚合器引用

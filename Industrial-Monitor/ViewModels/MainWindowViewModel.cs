@@ -58,8 +58,8 @@ namespace Industrial_Monitor.ViewModels
         {
             switch (viewName)
             {
-                case nameof(CommunicationParametersView):
-                    return new CommunicationParametersView();
+                case nameof(CommunicationConfigView):
+                    return new CommunicationConfigView();
                 // 添加其他视图...
                 default:
                     return null;

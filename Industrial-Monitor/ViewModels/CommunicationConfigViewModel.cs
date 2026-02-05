@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Industrial_Monitor.ViewModels
 {
-    class CommunicationParametersViewModel : BindableBase
+    class CommunicationConfigViewModel : BindableBase
     {
-        public CommunicationParametersViewModel(IEventAggregator eventAggregator)
+        public CommunicationConfigViewModel(IEventAggregator eventAggregator)
         {
             aggregator = eventAggregator;
             CloseDrawerCommand = new DelegateCommand(() => aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
