@@ -39,7 +39,7 @@ namespace Industrial_Monitor.ViewModels
             get { return _IsRightDrawerOpen; }
             set
             {
-                _IsRightDrawerOpen = value;
+               SetProperty(ref _IsRightDrawerOpen, value);
             }
         }
         #endregion
