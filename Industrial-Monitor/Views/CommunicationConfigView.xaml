@@ -34,7 +34,8 @@
                 <TextBox Style="{StaticResource MaterialDesignTextBox}"
                          Width="150"
                          VerticalAlignment="Center"
-                         materialDesign:HintAssist.Hint="127.0.0.0" />
+                         materialDesign:HintAssist.Hint="127.0.0.0"
+                         Text="{Binding ConfigParameters.IpAddress}"/>
             </StackPanel>
             <StackPanel Grid.Row="2"
                         Orientation="Horizontal"
@@ -46,7 +47,8 @@
                 <TextBox Style="{StaticResource MaterialDesignTextBox}"
                          Width="150"
                          VerticalAlignment="Center"
-                         materialDesign:HintAssist.Hint="502" />
+                         materialDesign:HintAssist.Hint="502"
+                         Text="{Binding ConfigParameters.Port}"/>
             </StackPanel>
             <StackPanel Grid.Row="3"
                         Orientation="Horizontal"
@@ -58,7 +60,8 @@
                 <TextBox Style="{StaticResource MaterialDesignTextBox}"
                          Width="150"
                          VerticalAlignment="Center"
-                         materialDesign:HintAssist.Hint="ms" />
+                         materialDesign:HintAssist.Hint="ms"
+                         Text="{Binding ConfigParameters.Timeout}"/>
             </StackPanel>
             <StackPanel Grid.Row="4"
                         Margin="0,0,0,20"
@@ -69,7 +72,8 @@
                            VerticalAlignment="Center" />
                 <TextBox Style="{StaticResource MaterialDesignTextBox}"
                          Width="150"
-                         VerticalAlignment="Center" />
+                         VerticalAlignment="Center"
+                         Text="{Binding ConfigParameters.RetryCount}"/>
             </StackPanel>
             <DockPanel Grid.Row="5"
                        LastChildFill="False">
