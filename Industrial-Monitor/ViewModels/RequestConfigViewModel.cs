@@ -76,9 +76,17 @@ namespace Industrial_Monitor.ViewModels
             get { return _functionCodeSelected; }
             set { SetProperty(ref _functionCodeSelected, value); }
         }
+        /// <summary>
+        /// 生成<枚举成员-成员描述>的键值对
+        /// </summary>
         public IEnumerable<KeyValuePair<ModbusFunctionCode, string>> AvailableFunctionCodes =>
         Enum.GetValues<ModbusFunctionCode>()
             .Select(code => new KeyValuePair<ModbusFunctionCode, string>(code, GetEnumDescription(code)));
+        /// <summary>
+        /// 获取枚举成员的描述属性
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         private string GetEnumDescription(ModbusFunctionCode value)
         {
             FieldInfo fi = value.GetType().GetField(value.ToString());
