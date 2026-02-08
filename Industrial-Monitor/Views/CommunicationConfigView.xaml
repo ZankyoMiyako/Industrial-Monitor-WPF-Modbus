@@ -80,7 +80,8 @@
                 <Button Content="确定"
                         DockPanel.Dock="Right"
                         Width="60"
-                        Margin="5" />
+                        Margin="5"
+                        Command="{Binding SaveCommand}"/>
                 <Button Content="取消"
                         DockPanel.Dock="Right"
                         Width="60"

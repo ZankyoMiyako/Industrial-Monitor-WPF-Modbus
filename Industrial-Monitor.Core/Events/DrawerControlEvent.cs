@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Industrial_Monitor.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,6 @@ namespace Industrial_Monitor.Core.Events
     {
         public bool IsOpen { get; set; }
         public string ViewName {  get; set; }
+        public CommunicationConfigParameters ConfigPayload { get; set; }
     }
 }
