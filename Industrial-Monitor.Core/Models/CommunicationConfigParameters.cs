@@ -14,7 +14,7 @@ namespace Industrial_Monitor.Core.Models
         /// <summary>
         /// ip地址
         /// </summary>
-        public string IpAddress { get; set; } = "120.0.0.1";
+        public string IpAddress { get; set; } = "127.0.0.1";
         /// <summary>
         /// 端口号
         /// </summary>
