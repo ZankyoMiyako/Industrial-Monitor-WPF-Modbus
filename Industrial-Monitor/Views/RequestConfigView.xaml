@@ -53,7 +53,6 @@
             <ComboBox VerticalAlignment="Center"
                       Margin="40,0,0,0"
                       MinWidth="123"
-                      SelectedIndex="2"
                       ItemsSource="{Binding AvailableFunctionCodes}"
                       SelectedValue="{Binding FunctionCodeSelected}"
                       DisplayMemberPath="Value"
