@@ -32,19 +32,13 @@ namespace Industrial_Monitor.ViewModels
                 ConfigPayload = ConfigParameters
             }));
         }
-        #region 事件聚合器引用
+        //事件聚合器引用
         private readonly IEventAggregator aggregator;
-        #endregion
-        #region 取消按钮命令
+        //取消按钮命令
         public DelegateCommand CloseDrawerCommand { get; set; }
-        #endregion
-        /// <summary>
-        /// 确定按钮命令
-        /// </summary>
+        //确定按钮命令
         public DelegateCommand SaveCommand { get; set; }
-        /// <summary>
-        /// 通信配置参数
-        /// </summary>
+        //通信配置参数
         private CommunicationConfigParameters _ConfigParameters;
 
         public CommunicationConfigParameters ConfigParameters
@@ -52,5 +46,6 @@ namespace Industrial_Monitor.ViewModels
             get { return _ConfigParameters; }
             set { SetProperty(ref _ConfigParameters, value); }
         }
+
     }
 }
