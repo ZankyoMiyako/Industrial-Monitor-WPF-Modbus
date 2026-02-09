@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Industrial_Monitor.Views
 {
     /// <summary>
-    /// CommunicationConfigView.xaml 的交互逻辑
+    /// ConnectionView.xaml 的交互逻辑
     /// </summary>
-    public partial class CommunicationConfigView : UserControl
+    public partial class ConnectionView : UserControl
     {
-        public CommunicationConfigView()
+        public ConnectionView()
         {
             InitializeComponent();
         }

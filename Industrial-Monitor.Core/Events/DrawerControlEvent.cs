@@ -13,6 +13,6 @@ namespace Industrial_Monitor.Core.Events
     {
         public bool IsOpen { get; set; }
         public string ViewName {  get; set; }
-        public CommunicationConfigParameters ConfigPayload { get; set; }
+        public ConnectionConfigParameters ConfigPayload { get; set; }
     }
 }

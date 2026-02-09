@@ -59,10 +59,10 @@ namespace Industrial_Monitor.ViewModels
         {
             switch (viewName)
             {
-                case nameof(CommunicationConfigView):
+                case nameof(ConnectionConfigView):
                     if (_cachedConfigView == null)
                     {
-                        _cachedConfigView = new CommunicationConfigView();
+                        _cachedConfigView = new ConnectionConfigView();
                     }
                     return _cachedConfigView;
 
@@ -70,7 +70,7 @@ namespace Industrial_Monitor.ViewModels
                     return null;
             }
         }
-        private CommunicationConfigView _cachedConfigView;
+        private ConnectionConfigView _cachedConfigView;
         #endregion
     }
 }

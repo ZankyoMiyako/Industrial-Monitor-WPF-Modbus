@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace Industrial_Monitor.ViewModels
 {
-    internal class CommunicationViewModel : BindableBase
+    internal class ConnectionViewModel : BindableBase
     {
-        public CommunicationViewModel(IEventAggregator eventAggregator)
+        public ConnectionViewModel(IEventAggregator eventAggregator)
         {
             aggregator = eventAggregator;
-            ConfigParameters = new CommunicationConfigParameters();
+            ConfigParameters = new ConnectionConfigParameters();
             OpenDrawerCommand = new DelegateCommand(() =>
             {
                 aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
                 {
                     IsOpen = true,
-                    ViewName = nameof(CommunicationConfigView),
+                    ViewName = nameof(ConnectionConfigView),
                     ConfigPayload=ConfigParameters
                 });
             });
@@ -29,19 +29,31 @@ namespace Industrial_Monitor.ViewModels
                 if(!Args.IsOpen&&Args.ConfigPayload!=null)
                     ConfigParameters=Args.ConfigPayload;
             });
+            ConnectCommand = new DelegateCommand(OnConnect);
         }
-        #region 事件聚合器引用
-        private readonly IEventAggregator aggregator;
-        #endregion
-        #region 右侧边栏发布命令
-        public DelegateCommand OpenDrawerCommand { get; set; }
-        #endregion
-        /// <summary>
-        /// 通信配置参数
-        /// </summary>
-        private CommunicationConfigParameters _ConfigParameters;
+        //连接命令
+        private void OnConnect()
+        {
+            
+        }
 
-        public CommunicationConfigParameters ConfigParameters
+        //事件聚合器引用
+        private readonly IEventAggregator aggregator;
+        //右侧边栏发布命令
+        public DelegateCommand OpenDrawerCommand { get; set; }
+        //连接绑定命令
+        public DelegateCommand ConnectCommand { get; set; }
+        //连接属性
+        private bool _IsConnected;
+        public bool IsConnected
+        {
+            get { return _IsConnected; }
+            set { SetProperty(ref _IsConnected, value); }
+        }
+        //通信配置参数
+        private ConnectionConfigParameters _ConfigParameters;
+
+        public ConnectionConfigParameters ConfigParameters
         {
             get { return _ConfigParameters; }
             set { SetProperty(ref _ConfigParameters, value); }

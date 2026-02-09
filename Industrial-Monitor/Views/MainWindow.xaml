@@ -134,7 +134,7 @@
                                     CornerRadius="15"
                                     Margin="10,0"
                                     Grid.Row="0">
-                                <ContentControl prism:RegionManager.RegionName="Communication" />
+                                <ContentControl prism:RegionManager.RegionName="Connection" />
                             </Border>
                             <Border Background="AliceBlue"
                                     Grid.Row="1"

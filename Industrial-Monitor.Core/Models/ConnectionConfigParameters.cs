@@ -9,7 +9,7 @@ namespace Industrial_Monitor.Core.Models
     /// <summary>
     /// Tcp的通信配置参数
     /// </summary>
-    public class CommunicationConfigParameters
+    public class ConnectionConfigParameters
     {
         /// <summary>
         /// ip地址

@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Industrial_Monitor.ViewModels
 {
-    class CommunicationConfigViewModel : BindableBase
+    class ConnectionConfigViewModel : BindableBase
     {
-        public CommunicationConfigViewModel(IEventAggregator eventAggregator)
+        public ConnectionConfigViewModel(IEventAggregator eventAggregator)
         {
             aggregator = eventAggregator;
-            ConfigParameters=new CommunicationConfigParameters();
+            ConfigParameters=new ConnectionConfigParameters();
             aggregator.GetEvent<DrawerControlEvent>().Subscribe(Args =>
             {
                 if (Args.IsOpen && Args.ConfigPayload != null)
@@ -39,9 +39,9 @@ namespace Industrial_Monitor.ViewModels
         //确定按钮命令
         public DelegateCommand SaveCommand { get; set; }
         //通信配置参数
-        private CommunicationConfigParameters _ConfigParameters;
+        private ConnectionConfigParameters _ConfigParameters;
 
-        public CommunicationConfigParameters ConfigParameters
+        public ConnectionConfigParameters ConfigParameters
         {
             get { return _ConfigParameters; }
             set { SetProperty(ref _ConfigParameters, value); }
