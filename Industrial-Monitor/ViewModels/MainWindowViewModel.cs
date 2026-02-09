@@ -22,7 +22,7 @@ namespace Industrial_Monitor.ViewModels
                 if (args.IsOpen && !string.IsNullOrEmpty(args.ViewName))
                 {
                     // 重用缓存的View，而不是每次都创建新的
-                    RightDrawerContent = GetOrCreateView(args.ViewName, args.ConfigPayload);
+                    RightDrawerContent = GetOrCreateView(args.ViewName);
                 }
                 else
                 {
@@ -55,9 +55,8 @@ namespace Industrial_Monitor.ViewModels
             get => _rightDrawerContent;
             set => SetProperty(ref _rightDrawerContent, value);
         }
-        private object GetOrCreateView(string viewName, CommunicationConfigParameters parameters = null)
+        private object GetOrCreateView(string viewName)
         {
-
             switch (viewName)
             {
                 case nameof(CommunicationConfigView):
@@ -65,16 +64,6 @@ namespace Industrial_Monitor.ViewModels
                     {
                         _cachedConfigView = new CommunicationConfigView();
                     }
-                    // 如果有参数，设置到ViewModel
-                    if (parameters != null && _cachedConfigView.DataContext is CommunicationConfigViewModel vm)
-                    {
-                        Debug.WriteLine($"设置参数到缓存的ViewModel: IP={parameters.IpAddress}");
-                        vm.ConfigParameters.IpAddress = parameters.IpAddress;
-                        vm.ConfigParameters.Port = parameters.Port;
-                        vm.ConfigParameters.Timeout = parameters.Timeout;
-                        vm.ConfigParameters.RetryCount = parameters.RetryCount;
-                    }
-
                     return _cachedConfigView;
 
                 default:
