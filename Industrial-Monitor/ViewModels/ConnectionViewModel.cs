@@ -13,18 +13,18 @@ namespace Industrial_Monitor.ViewModels
     {
         public ConnectionViewModel(IEventAggregator eventAggregator)
         {
-            aggregator = eventAggregator;
+            _aggregator = eventAggregator;
             ConnectionParameters = new ConnectionConfigParameters();
             OpenDrawerCommand = new DelegateCommand(() =>
             {
-                aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
+                _aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
                 {
                     IsOpen = true,
                     ViewName = nameof(ConnectionConfigView),
                     ConfigPayload= ConnectionParameters
                 });
             });
-            aggregator.GetEvent<DrawerControlEvent>().Subscribe(Args =>
+            _aggregator.GetEvent<DrawerControlEvent>().Subscribe(Args =>
             {
                 if(!Args.IsOpen&&Args.ConfigPayload!=null)
                     ConnectionParameters = Args.ConfigPayload;
@@ -38,7 +38,7 @@ namespace Industrial_Monitor.ViewModels
         }
 
         //事件聚合器引用
-        private readonly IEventAggregator aggregator;
+        private readonly IEventAggregator _aggregator;
         //右侧边栏发布命令
         public DelegateCommand OpenDrawerCommand { get; set; }
         //连接绑定命令

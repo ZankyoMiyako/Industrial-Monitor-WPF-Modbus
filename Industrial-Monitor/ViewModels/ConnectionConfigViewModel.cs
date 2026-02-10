@@ -13,27 +13,27 @@ namespace Industrial_Monitor.ViewModels
     {
         public ConnectionConfigViewModel(IEventAggregator eventAggregator)
         {
-            aggregator = eventAggregator;
+            _aggregator = eventAggregator;
             ConnectionParameters = new ConnectionConfigParameters();
-            aggregator.GetEvent<DrawerControlEvent>().Subscribe(Args =>
+            _aggregator.GetEvent<DrawerControlEvent>().Subscribe(Args =>
             {
                 if (Args.IsOpen && Args.ConfigPayload != null)
                 {
                     ConnectionParameters = Args.ConfigPayload;
                 }
             },ThreadOption.UIThread);
-            CloseDrawerCommand = new DelegateCommand(() => aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
+            CloseDrawerCommand = new DelegateCommand(() => _aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
             {
                 IsOpen = false
             }));
-            SaveCommand = new DelegateCommand(() => aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
+            SaveCommand = new DelegateCommand(() => _aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
             {
                 IsOpen = false,
                 ConfigPayload = ConnectionParameters
             }));
         }
         //事件聚合器引用
-        private readonly IEventAggregator aggregator;
+        private readonly IEventAggregator _aggregator;
         //取消按钮命令
         public DelegateCommand CloseDrawerCommand { get; set; }
         //确定按钮命令

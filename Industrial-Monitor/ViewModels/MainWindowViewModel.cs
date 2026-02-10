@@ -14,8 +14,8 @@ namespace Industrial_Monitor.ViewModels
     {
         public MainWindowViewModel(IEventAggregator eventaggregator, IRegionManager _regionManager)
         {
-            aggregator = eventaggregator;
-            aggregator.GetEvent<DrawerControlEvent>().Subscribe(args =>
+            _aggregator = eventaggregator;
+            _aggregator.GetEvent<DrawerControlEvent>().Subscribe(args =>
             {
                 IsRightDrawerOpen = args.IsOpen;
 
@@ -31,7 +31,7 @@ namespace Industrial_Monitor.ViewModels
             }, ThreadOption.UIThread);
         }
         #region 事件聚合器引用
-        private readonly IEventAggregator aggregator;
+        private readonly IEventAggregator _aggregator;
         #endregion
         #region 右侧边栏的开关属性
         private bool _IsRightDrawerOpen;
