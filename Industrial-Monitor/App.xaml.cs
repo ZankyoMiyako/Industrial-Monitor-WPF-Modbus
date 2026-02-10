@@ -1,4 +1,5 @@
-﻿using Industrial_Monitor.ViewModels;
+﻿using Industrial_Monitor.Core.Services;
+using Industrial_Monitor.ViewModels;
 using Industrial_Monitor.Views;
 using System.Configuration;
 using System.Data;
@@ -29,6 +30,8 @@ namespace Industrial_Monitor
             containerRegistry.RegisterForNavigation<ConnectionView, ConnectionViewModel>();
             containerRegistry.RegisterForNavigation<ConnectionConfigView, ConnectionConfigViewModel>();
             containerRegistry.RegisterForNavigation<RequestConfigView, RequestConfigViewModel>();
+
+            containerRegistry.Register<IModbusMasterService,ModbusMasterService>();
         }
     }
 
