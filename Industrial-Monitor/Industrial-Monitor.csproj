@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="5.3.0" />
+    <PackageReference Include="NModbus" Version="3.0.81" />
     <PackageReference Include="Prism.DryIoc" Version="9.0.537" />
   </ItemGroup>
 

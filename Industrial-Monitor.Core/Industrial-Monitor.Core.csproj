@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NModbus" Version="3.0.81" />
     <PackageReference Include="Prism.Core" Version="9.0.537" />
   </ItemGroup>
 
