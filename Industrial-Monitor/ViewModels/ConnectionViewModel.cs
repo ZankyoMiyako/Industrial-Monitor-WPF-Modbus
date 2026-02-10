@@ -1,5 +1,6 @@
 ﻿using Industrial_Monitor.Core.Events;
 using Industrial_Monitor.Core.Models;
+using Industrial_Monitor.Core.Services;
 using Industrial_Monitor.Views;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,10 @@ namespace Industrial_Monitor.ViewModels
 {
     internal class ConnectionViewModel : BindableBase
     {
-        public ConnectionViewModel(IEventAggregator eventAggregator)
+        public ConnectionViewModel(IEventAggregator eventAggregator,IModbusMasterService modbusMaster)
         {
             _aggregator = eventAggregator;
+            _modbusMaster = modbusMaster;
             ConnectionParameters = new ConnectionConfigParameters();
             OpenDrawerCommand = new DelegateCommand(() =>
             {
@@ -34,11 +36,16 @@ namespace Industrial_Monitor.ViewModels
         //连接命令
         private void OnConnect()
         {
-            
+            if (_modbusMaster.IsConnected == false)
+            {
+               IsConnected= _modbusMaster.Connect(ConnectionParameters);
+            }
         }
 
         //事件聚合器引用
         private readonly IEventAggregator _aggregator;
+        //modbus主站服务引用
+        private readonly IModbusMasterService _modbusMaster;
         //右侧边栏发布命令
         public DelegateCommand OpenDrawerCommand { get; set; }
         //连接绑定命令
