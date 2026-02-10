@@ -14,12 +14,12 @@ namespace Industrial_Monitor.ViewModels
         public ConnectionConfigViewModel(IEventAggregator eventAggregator)
         {
             aggregator = eventAggregator;
-            ConfigParameters=new ConnectionConfigParameters();
+            ConnectionParameters = new ConnectionConfigParameters();
             aggregator.GetEvent<DrawerControlEvent>().Subscribe(Args =>
             {
                 if (Args.IsOpen && Args.ConfigPayload != null)
                 {
-                    ConfigParameters = Args.ConfigPayload;
+                    ConnectionParameters = Args.ConfigPayload;
                 }
             },ThreadOption.UIThread);
             CloseDrawerCommand = new DelegateCommand(() => aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
@@ -29,7 +29,7 @@ namespace Industrial_Monitor.ViewModels
             SaveCommand = new DelegateCommand(() => aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
             {
                 IsOpen = false,
-                ConfigPayload = ConfigParameters
+                ConfigPayload = ConnectionParameters
             }));
         }
         //事件聚合器引用
@@ -39,12 +39,12 @@ namespace Industrial_Monitor.ViewModels
         //确定按钮命令
         public DelegateCommand SaveCommand { get; set; }
         //通信配置参数
-        private ConnectionConfigParameters _ConfigParameters;
+        private ConnectionConfigParameters _ConnectionParameters;
 
-        public ConnectionConfigParameters ConfigParameters
+        public ConnectionConfigParameters ConnectionParameters
         {
-            get { return _ConfigParameters; }
-            set { SetProperty(ref _ConfigParameters, value); }
+            get { return _ConnectionParameters; }
+            set { SetProperty(ref _ConnectionParameters, value); }
         }
 
     }

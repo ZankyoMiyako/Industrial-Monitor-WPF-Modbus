@@ -14,20 +14,20 @@ namespace Industrial_Monitor.ViewModels
         public ConnectionViewModel(IEventAggregator eventAggregator)
         {
             aggregator = eventAggregator;
-            ConfigParameters = new ConnectionConfigParameters();
+            ConnectionParameters = new ConnectionConfigParameters();
             OpenDrawerCommand = new DelegateCommand(() =>
             {
                 aggregator.GetEvent<DrawerControlEvent>().Publish(new DrawerControlEventArgs
                 {
                     IsOpen = true,
                     ViewName = nameof(ConnectionConfigView),
-                    ConfigPayload=ConfigParameters
+                    ConfigPayload= ConnectionParameters
                 });
             });
             aggregator.GetEvent<DrawerControlEvent>().Subscribe(Args =>
             {
                 if(!Args.IsOpen&&Args.ConfigPayload!=null)
-                    ConfigParameters=Args.ConfigPayload;
+                    ConnectionParameters = Args.ConfigPayload;
             });
             ConnectCommand = new DelegateCommand(OnConnect);
         }
@@ -51,12 +51,12 @@ namespace Industrial_Monitor.ViewModels
             set { SetProperty(ref _IsConnected, value); }
         }
         //通信配置参数
-        private ConnectionConfigParameters _ConfigParameters;
+        private ConnectionConfigParameters _ConnectionParameters;
 
-        public ConnectionConfigParameters ConfigParameters
+        public ConnectionConfigParameters ConnectionParameters
         {
-            get { return _ConfigParameters; }
-            set { SetProperty(ref _ConfigParameters, value); }
+            get { return _ConnectionParameters; }
+            set { SetProperty(ref _ConnectionParameters, value); }
         }
     }
 }

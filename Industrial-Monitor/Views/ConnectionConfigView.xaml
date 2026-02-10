@@ -35,7 +35,7 @@
                          Width="150"
                          VerticalAlignment="Center"
                          materialDesign:HintAssist.Hint="127.0.0.0"
-                         Text="{Binding ConfigParameters.IpAddress}"/>
+                         Text="{Binding ConnectionParameters.IpAddress}"/>
             </StackPanel>
             <StackPanel Grid.Row="2"
                         Orientation="Horizontal"
@@ -48,7 +48,7 @@
                          Width="150"
                          VerticalAlignment="Center"
                          materialDesign:HintAssist.Hint="502"
-                         Text="{Binding ConfigParameters.Port}"/>
+                         Text="{Binding ConnectionParameters.Port}"/>
             </StackPanel>
             <StackPanel Grid.Row="3"
                         Orientation="Horizontal"
@@ -61,7 +61,7 @@
                          Width="150"
                          VerticalAlignment="Center"
                          materialDesign:HintAssist.Hint="ms"
-                         Text="{Binding ConfigParameters.Timeout}"/>
+                         Text="{Binding ConnectionParameters.Timeout}"/>
             </StackPanel>
             <StackPanel Grid.Row="4"
                         Margin="0,0,0,20"
@@ -73,7 +73,7 @@
                 <TextBox Style="{StaticResource MaterialDesignTextBox}"
                          Width="150"
                          VerticalAlignment="Center"
-                         Text="{Binding ConfigParameters.RetryCount}"/>
+                         Text="{Binding ConnectionParameters.RetryCount}"/>
             </StackPanel>
             <DockPanel Grid.Row="5"
                        LastChildFill="False">
