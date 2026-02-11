@@ -2,7 +2,6 @@
 using Industrial_Monitor.ViewModels;
 using Industrial_Monitor.Views;
 using System.Configuration;
-using System.Data;
 using System.Windows;
 
 namespace Industrial_Monitor
@@ -23,6 +22,7 @@ namespace Industrial_Monitor
             regionManager.RequestNavigate("NavigationBar", nameof(NavigationBarView));
             regionManager.RequestNavigate("Connection",nameof(ConnectionView));
             regionManager.RequestNavigate("RequestConfig", nameof(RequestConfigView));
+            regionManager.RequestNavigate("ModbusData",nameof(ModbusDataView));
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -30,6 +30,7 @@ namespace Industrial_Monitor
             containerRegistry.RegisterForNavigation<ConnectionView, ConnectionViewModel>();
             containerRegistry.RegisterForNavigation<ConnectionConfigView, ConnectionConfigViewModel>();
             containerRegistry.RegisterForNavigation<RequestConfigView, RequestConfigViewModel>();
+            containerRegistry.RegisterForNavigation<ModbusDataView,ModbusMasterService>();
 
             containerRegistry.Register<IModbusMasterService,ModbusMasterService>();
         }
