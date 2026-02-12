@@ -33,6 +33,7 @@ namespace Industrial_Monitor
             containerRegistry.RegisterForNavigation<ModbusDataView,ModbusMasterService>();
 
             containerRegistry.Register<IModbusMasterService,ModbusMasterService>();
+            containerRegistry.Register<IRequestConfigService, RequestConfigService>();
         }
     }
 
