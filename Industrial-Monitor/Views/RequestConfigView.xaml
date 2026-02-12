@@ -79,6 +79,7 @@
         <Button Grid.Row="5"
                 Margin="10"
                 HorizontalAlignment="Right"
+                Command="{Binding ApplyCommand}"
                 Content="生成看板" />
     </Grid>
 </UserControl>

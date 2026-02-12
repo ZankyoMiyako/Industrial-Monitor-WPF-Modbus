@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Industrial_Monitor.Core.Models;
+using Industrial_Monitor.Core.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -10,10 +14,45 @@ namespace Industrial_Monitor.ViewModels
 {
     class RequestConfigViewModel : BindableBase
     {
-        public RequestConfigViewModel()
-        {
+        //IRequestConfigService服务引用
+        private readonly IRequestConfigService _requestService;
+        //IModbusMasterService服务引用
+        private readonly IModbusMasterService _modbusService;
+        //生成面板命令
+        public DelegateCommand ApplyCommand {  get; set; }
+        //暂存寄存器列表
+        public ObservableCollection<ModbusDataItem> ModbusDataItems { get; set; } = new ObservableCollection<ModbusDataItem>();
 
+        public RequestConfigViewModel(IRequestConfigService requsetService, IModbusMasterService masterService)
+        {
+            _requestService = requsetService;
+            _modbusService = masterService;
+            ApplyCommand = new DelegateCommand(ApplyConfig);
         }
+        //应用配置命令
+        public void ApplyConfig()
+        {
+            if (_modbusService.IsConnected)
+            {
+                _requestService.SlaveId = SlaveId;
+                _requestService.FunctionCode = (byte)FunctionCodeSelected;
+                _requestService.StartAddress = StartAddress;
+                _requestService.Count = Count;
+
+                ModbusDataItems.Clear();
+                var items = _requestService.GetModbusDataItems();
+
+                foreach (var item in items)
+                {
+                    ModbusDataItems.Add(item);
+                }
+            }
+            else
+            {
+                Debug.WriteLine("尚未连接主站");
+            }
+        }
+
         /// <summary>
         /// Modbus从站地址,默认为1
         /// </summary>
