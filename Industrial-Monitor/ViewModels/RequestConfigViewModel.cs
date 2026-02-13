@@ -1,4 +1,5 @@
-﻿using Industrial_Monitor.Core.Models;
+﻿using Industrial_Monitor.Core.Events;
+using Industrial_Monitor.Core.Models;
 using Industrial_Monitor.Core.Services;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace Industrial_Monitor.ViewModels
 {
     class RequestConfigViewModel : BindableBase
     {
+        //事件聚合器引用
+        private readonly IEventAggregator _aggregator;
         //IRequestConfigService服务引用
         private readonly IRequestConfigService _requestService;
         //IModbusMasterService服务引用
@@ -23,8 +26,9 @@ namespace Industrial_Monitor.ViewModels
         //暂存寄存器列表
         public ObservableCollection<ModbusDataItem> ModbusDataItems { get; set; } = new ObservableCollection<ModbusDataItem>();
 
-        public RequestConfigViewModel(IRequestConfigService requsetService, IModbusMasterService masterService)
+        public RequestConfigViewModel(IRequestConfigService requsetService, IModbusMasterService masterService,IEventAggregator aggregator)
         {
+            _aggregator=aggregator;
             _requestService = requsetService;
             _modbusService = masterService;
             ApplyCommand = new DelegateCommand(ApplyConfig);
@@ -46,6 +50,7 @@ namespace Industrial_Monitor.ViewModels
                 {
                     ModbusDataItems.Add(item);
                 }
+                _aggregator.GetEvent<ModbusDataItemGeneratedEvent>().Publish(ModbusDataItems);
             }
             else
             {
