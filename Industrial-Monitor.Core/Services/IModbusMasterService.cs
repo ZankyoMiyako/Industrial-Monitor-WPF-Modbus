@@ -1,6 +1,7 @@
 ﻿using Industrial_Monitor.Core.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -16,5 +17,8 @@ namespace Industrial_Monitor.Core.Services
         bool IsConnected { get;}
         //连接方法
         bool Connect(ConnectionConfigParameters Parameters);
+        void Disconnect();
+        void StartPolling(byte SlaveId,byte FunctionCode,ObservableCollection<ModbusDataItem> modbusDataItems,int intervalMs,Action<ModbusDataItem,string> updateCallback);
+        void StopPolling();
     }
 }
