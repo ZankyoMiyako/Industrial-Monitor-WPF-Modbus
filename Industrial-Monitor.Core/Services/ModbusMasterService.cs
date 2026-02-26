@@ -65,6 +65,8 @@ namespace Industrial_Monitor.Core.Services
             {
                 _tcpClient.Close();
                 _tcpClient = null;
+                _master = null;
+                IsConnected = false;
             }
             catch (Exception ex)
             {
@@ -83,8 +85,6 @@ namespace Industrial_Monitor.Core.Services
         private int _intervalMs;
         //值更新的回调
         private Action<ModbusDataItem, string> _updateCallback;
-        //
-        private ConnectionConfigParameters _connectionParameters;
         //启动轮询
         public void StartPolling(byte SlaveId, byte FunctionCode, ObservableCollection<ModbusDataItem> modbusDataItems, int intervalMs, Action<ModbusDataItem, string> updateCallback)
         {
@@ -106,7 +106,7 @@ namespace Industrial_Monitor.Core.Services
                 {
                     _currentReconnectAttempts++;
                     //重连次数耗尽,放弃
-                    if (_currentReconnectAttempts > (_connectionParameters?.RetryCount ?? 3))
+                    if (_currentReconnectAttempts > (ConnectionParameters?.RetryCount ?? 3))
                     {
                         StopPolling();
                         return;
@@ -115,7 +115,7 @@ namespace Industrial_Monitor.Core.Services
                     //重连失败
                     if (!connect)
                     {
-                        await Task.Delay(_connectionParameters?.Timeout ?? 2000, Token);
+                        await Task.Delay(ConnectionParameters?.Timeout ?? 2000, Token);
                         continue;
                     }
                     //重连成功
