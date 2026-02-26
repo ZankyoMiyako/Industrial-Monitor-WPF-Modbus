@@ -30,10 +30,10 @@ namespace Industrial_Monitor
             containerRegistry.RegisterForNavigation<ConnectionView, ConnectionViewModel>();
             containerRegistry.RegisterForNavigation<ConnectionConfigView, ConnectionConfigViewModel>();
             containerRegistry.RegisterForNavigation<RequestConfigView, RequestConfigViewModel>();
-            containerRegistry.RegisterForNavigation<ModbusDataView,ModbusMasterService>();
+            containerRegistry.RegisterForNavigation<ModbusDataView,ModbusDataViewModel>();
 
-            containerRegistry.Register<IModbusMasterService,ModbusMasterService>();
-            containerRegistry.Register<IRequestConfigService, RequestConfigService>();
+            containerRegistry.RegisterSingleton<IModbusMasterService,ModbusMasterService>();
+            containerRegistry.RegisterSingleton<IRequestConfigService, RequestConfigService>();
         }
     }
 
