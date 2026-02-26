@@ -12,10 +12,10 @@ namespace Industrial_Monitor.ViewModels
 {
     internal class ConnectionViewModel : BindableBase
     {
-        public ConnectionViewModel(IEventAggregator eventAggregator,IModbusMasterService modbusMaster)
+        public ConnectionViewModel(IEventAggregator eventAggregator,IModbusMasterService masterService)
         {
             _aggregator = eventAggregator;
-            _modbusMaster = modbusMaster;
+            _modbusMaster = masterService;
             ConnectionParameters = new ConnectionConfigParameters();
             OpenDrawerCommand = new DelegateCommand(() =>
             {

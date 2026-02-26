@@ -21,7 +21,7 @@ namespace Industrial_Monitor.ViewModels
         //IRequestConfigService服务引用
         private readonly IRequestConfigService _requestService;
         //IModbusMasterService服务引用
-        private readonly IModbusMasterService _modbusService;
+        private readonly IModbusMasterService _modbusMaster;
         //生成面板命令
         public DelegateCommand ApplyCommand {  get; set; }
         //暂存寄存器列表
@@ -31,13 +31,14 @@ namespace Industrial_Monitor.ViewModels
         {
             _aggregator=aggregator;
             _requestService = requsetService;
-            _modbusService = masterService;
+            _modbusMaster = masterService;
             ApplyCommand = new DelegateCommand(ApplyConfig);
         }
         //应用配置命令
         public void ApplyConfig()
         {
-            if (_modbusService.IsConnected)
+            Debug.WriteLine($"此时连接状态为{_modbusMaster.IsConnected}");
+            if (_modbusMaster.IsConnected)
             {
                 _requestService.SlaveId = SlaveId;
                 _requestService.FunctionCode = (byte)FunctionCodeSelected;
