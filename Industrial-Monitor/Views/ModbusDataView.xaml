@@ -28,12 +28,13 @@
             <ItemsControl ItemsSource="{Binding ModbusDataItems}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <UniformGrid Columns="4" Margin="2">
-                            <TextBlock Text="{Binding Index}"
-                                       Margin="10,0" />
-                            <TextBlock Text="{Binding Address}"
-                                       Margin="10,0" />
-                            <TextBlock Text="{Binding Name}" Margin="3,0"/>
+                        <UniformGrid Columns="4"
+                                     Margin="2">
+                            <TextBlock Text="{Binding Index}" />
+                            <TextBlock Text="{Binding Address}" />
+                            <TextBox Text="{Binding Name}"
+                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                     Padding="0" />
                             <Button Content="{Binding Value}" />
                         </UniformGrid>
                     </DataTemplate>
