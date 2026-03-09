@@ -13,30 +13,62 @@
             <RowDefinition Height="auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <UniformGrid Grid.Row="0"
-                     Columns="4">
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
             <TextBlock FontSize="15"
-                       Text="序号" />
+                       Text="序号"
+                       Grid.Column="0" />
             <TextBlock FontSize="15"
-                       Text="地址" />
+                       Text="地址"
+                       Grid.Column="1" 
+                       Margin="-5,0"/>
             <TextBlock FontSize="15"
-                       Text="名称" />
+                       Text="名称"
+                       Grid.Column="2" 
+                       HorizontalAlignment="Stretch"
+                       Margin="35,0"/>
             <TextBlock FontSize="15"
-                       Text="数值" />
-        </UniformGrid>
+                       Text="数值"
+                       Grid.Column="3" 
+                       Margin="25,0"/>
+        </Grid>
         <ScrollViewer Grid.Row="1">
-            <ItemsControl ItemsSource="{Binding ModbusDataItems}">
+            <ItemsControl ItemsSource="{Binding ModbusDataItems}" Margin="5">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <UniformGrid Columns="4"
-                                     Margin="2">
-                            <TextBlock Text="{Binding Index}" />
-                            <TextBlock Text="{Binding Address}" />
+                        <Grid Grid.Row="1" Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Index}"
+                                       FontSize="15"
+                                       Style="{StaticResource MaterialDesignTextBlock}"
+                                       Grid.Column="0" 
+                                       />
+                            <TextBlock Text="{Binding Address}"
+                                       Style="{StaticResource  MaterialDesignTextBlock}"
+                                       FontSize="15"
+                                       Grid.Column="1" />
                             <TextBox Text="{Binding Name}"
                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     Padding="0" />
-                            <Button Content="{Binding Value}" />
-                        </UniformGrid>
+                                     Padding="0"
+                                     Margin="5,0"
+                                     FontSize="15"
+                                     Grid.Column="2" 
+                                     HorizontalContentAlignment="Center"
+                                     />
+                            <Button Content="{Binding Value}"
+                                    FontSize="15"
+                                    Grid.Column="3" />
+                        </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
